@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copiando...</title>
+    <script>        
+        window.onload = function () {            
+            const urlParams = new URLSearchParams(window.location.search);
+            const codigo = urlParams.get("codigo");
+
+            if (codigo) {                
+                navigator.clipboard.writeText(codigo).then(() => {
+                    alert("Código Pix copiado com sucesso!");
+                    window.close();
+                }).catch(err => {
+                    alert("Erro ao copiar o código.");
+                    console.error("Erro:", err);
+                });
+            } else {
+                alert("Nenhum código Pix encontrado.");
+            }
+        };
+    </script>
+</head>
+<body>
+    <p>Copiando código Pix...</p>
+</body>
+</html>
