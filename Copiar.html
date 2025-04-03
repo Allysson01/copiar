@@ -10,12 +10,17 @@
     const codigo = urlParams.get("codigo");
 
     if (codigo) {
-        navigator.clipboard.writeText(codigo).then(() => {            
-            window.close();            
+        navigator.clipboard.writeText(codigo).then(() => {
+            alert("Código Pix copiado com sucesso!");
+            
+            window.close();
+            
+            // Se não conseguir fechar, tenta redirecionar para o app do banco ou volta para o app de PDF
             setTimeout(() => {
                 window.location.href = "intent://#Intent;scheme=pix;package=com.example.pixapp;end;";
             }, 500);
         }).catch(err => {
+            alert("Erro ao copiar o código.");
             console.error("Erro:", err);
         });
     } else {
