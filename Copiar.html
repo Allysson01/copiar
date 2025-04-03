@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copiando...</title>
     <script>        
-        window.onload = function () {            
-            const urlParams = new URLSearchParams(window.location.search);
-            const codigo = urlParams.get("codigo");
+       window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const codigo = urlParams.get("codigo");
 
-            if (codigo) {                
-                navigator.clipboard.writeText(codigo).then(() => {                    
-                    window.close();
-                }).catch(err => {                    
-                    console.error("Erro:", err);
-                });
-            } else {
-                alert("Nenhum código Pix encontrado.");
-            }
-        };
+    if (codigo) {
+        navigator.clipboard.writeText(codigo).then(() => {            
+            window.close();            
+            setTimeout(() => {
+                window.location.href = "intent://#Intent;scheme=pix;package=com.example.pixapp;end;";
+            }, 500);
+        }).catch(err => {
+            console.error("Erro:", err);
+        });
+    } else {
+        alert("Nenhum código Pix encontrado.");
+    }
+};
     </script>
 </head>
 <body>
