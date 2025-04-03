@@ -13,15 +13,14 @@
             if (codigo) {
                 navigator.clipboard.writeText(codigo).then(() => {
                     alert("Código Pix copiado para area de transferência!");
-
+                    window.close();
                 }).catch(err => {
                     alert("Erro ao copiar o código.");
                 });
             } else {
                 alert("Nenhum código Pix encontrado.");
+                window.close();
             }
-
-            window.close();
         };
     </script>
 </head>
