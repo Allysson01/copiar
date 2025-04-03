@@ -10,11 +10,9 @@
             const codigo = urlParams.get("codigo");
 
             if (codigo) {                
-                navigator.clipboard.writeText(codigo).then(() => {
-                    alert("Código Pix copiado com sucesso!");
+                navigator.clipboard.writeText(codigo).then(() => {                    
                     window.close();
-                }).catch(err => {
-                    alert("Erro ao copiar o código.");
+                }).catch(err => {                    
                     console.error("Erro:", err);
                 });
             } else {
